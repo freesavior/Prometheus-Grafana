@@ -5,5 +5,8 @@ helm install prometheus prometheus-community/prometheus --namespace monitoring
 # Vérifiez que le déploiement de Prometheus est en cours d'exécution 
 kubectl get pods -n monitoring
 
-#Exposez le service Prometheus en tant que NodePort 
+# Exposez le service Prometheus en tant que NodePort 
 kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext --namespace monitoring
+
+# Utilisez l'adresse IP et le port du service Prometheus pour accéder au tableau de bord Prometheus depuis votre navigateur.
+Exemple : http://<prometheus-ip>:<prometheus-port>
