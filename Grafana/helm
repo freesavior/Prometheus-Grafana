@@ -1,0 +1,14 @@
+# Installez Grafana en utilisant Helm 
+helm repo add grafana https://grafana.github.io/helm-charts
+helm install grafana grafana/grafana --namespace monitoring
+
+
+# Vérifiez que le déploiement de Grafana est en cours d'exécution 
+kubectl get pods -n monitoring
+
+
+#Exposez le service Grafana en tant que NodePort 
+kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext --namespace monitoring
+
+# Utilisez l'adresse IP et le port du service Grafana pour accéder au tableau de bord Grafana depuis votre navigateur.
+Exemple : http://<grafana-ip>:<grafana-port>
