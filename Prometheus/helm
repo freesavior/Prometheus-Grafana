@@ -1,0 +1,9 @@
+# Installez Prometheus en utilisant Helm 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install prometheus prometheus-community/prometheus --namespace monitoring
+
+# Vérifiez que le déploiement de Prometheus est en cours d'exécution 
+kubectl get pods -n monitoring
+
+#Exposez le service Prometheus en tant que NodePort 
+kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext --namespace monitoring
