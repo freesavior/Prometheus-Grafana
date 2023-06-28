@@ -15,3 +15,7 @@ minikube start --driver=hyperkit --memory=4096
 # Vérifiez que le cluster Kubernetes Minikube est en cours d'exécution
 kubectl cluster-info
 
+# Créez un espace de nom (namespace) pour Prometheus et Grafana 
+kubectl create namespace monitoring
+
+
